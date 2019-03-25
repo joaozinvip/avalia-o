@@ -9,26 +9,28 @@
 
 <ion-content padding>
 
-<form (ngSubmit)="enviarMensagem()">
+<!-- 4. Inserir o formGroup -->
+<form [formGroup]='formGroup' (ngSubmit)="enviarMensagem()">
   <ion-list>
     <ion-item>
       <ion-label floating>Nome</ion-label>
-      <ion-input type="text"></ion-input>
+      <!-- 5. Inserir o formControlName em todos os inputs -->
+      <ion-input formControlName="nome" type="text"></ion-input>
     </ion-item>
   
     <ion-item>
       <ion-label floating>Email</ion-label>
-      <ion-input type="text"></ion-input>
+      <ion-input formControlName="email" type="text"></ion-input>
     </ion-item>
 
     <ion-item>
       <ion-label floating>Assunto</ion-label>
-      <ion-input type="text"></ion-input>
+      <ion-input formControlName="assunto" type="text"></ion-input>
     </ion-item>
 
     <ion-item>
       <ion-label floating>Mensagem</ion-label>
-      <ion-textarea  rows="6"></ion-textarea>
+      <ion-textarea formControlName="mensagem" rows="6"></ion-textarea>
     </ion-item>
 
   </ion-list>
