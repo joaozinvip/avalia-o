@@ -6,6 +6,7 @@ import { StatusBar } from '@ionic-native/status-bar';
 import { SplashScreen } from '@ionic-native/splash-screen';
 import { HttpClientModule } from '@angular/common/http';
 import { FilmeService } from '../services/filme.service';
+import { ClienteService } from '../services/cliente.service';
 
 @NgModule({
   declarations: [
@@ -27,6 +28,7 @@ import { FilmeService } from '../services/filme.service';
     StatusBar,
     SplashScreen,
     FilmeService,
+    ClienteService,
     {provide: ErrorHandler, useClass: IonicErrorHandler}
   ]
 })
