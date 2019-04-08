@@ -5,8 +5,12 @@ import { MyApp } from './app.component';
 import { StatusBar } from '@ionic-native/status-bar';
 import { SplashScreen } from '@ionic-native/splash-screen';
 import { HttpClientModule } from '@angular/common/http';
-import { FilmeService } from '../services/filme.service';
-import { ClienteService } from '../services/cliente.service';
+import { AngularFireAuth } from 'angularfire2/auth';
+import { AngularFireModule } from '@angular/fire';
+import { firebaseConfig } from '../config/firebase.config';
+import { AngularFirestoreModule } from 'angularfire2/firestore';
+import { AngularFireStorageModule } from 'angularfire2/storage';
+import { ClienteService } from '../service/cliente.service';
 
 @NgModule({
   declarations: [
@@ -16,18 +20,21 @@ import { ClienteService } from '../services/cliente.service';
   imports: [
     BrowserModule,
     IonicModule.forRoot(MyApp),
-    HttpClientModule
+    HttpClientModule,
+    // Configuração do servidor (firebase.config.ts)
+    AngularFireModule.initializeApp(firebaseConfig),
+    AngularFirestoreModule,
+    AngularFireStorageModule
   ],
   bootstrap: [IonicApp],
   entryComponents: [
     MyApp,
-
     
   ],
   providers: [
     StatusBar,
     SplashScreen,
-    FilmeService,
+    AngularFireAuth, // Serviço de Autenticação (Authentication)
     ClienteService,
     {provide: ErrorHandler, useClass: IonicErrorHandler}
   ]
