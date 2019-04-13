@@ -1,0 +1,38 @@
+<ion-header>
+
+    <ion-navbar>
+    <ion-title>Atualiza Livro</ion-title>
+    </ion-navbar>
+    
+    </ion-header>
+    <ion-content padding>
+    
+    <img src="{{imagem}}">
+    
+    <ion-item>
+    <input type="file" (change)="enviaArquivo($event)"/>
+    </ion-item>
+    
+    <form [formGroup]="formGroup" (ngSubmit)="atualiza()">
+    <ion-list>
+    <ion-item>
+    <ion-label floating>TITULO</ion-label>
+    <ion-input formControlName="titulo" type="text"></ion-input>
+    </ion-item>
+    <ion-item>
+    <ion-label floating>AUTOR</ion-label>
+    <ion-input formControlName="autor" type="text"></ion-input>
+    </ion-item>
+    <ion-item>
+    <ion-label floating>PREÇO</ion-label>
+    <ion-input formControlName="preco" type="text"></ion-input>
+    </ion-item>
+    <ion-item>
+    <ion-label floating>RESUMO DO LIVRO</ion-label>
+    <ion-input formControlName="resumo" type="text"></ion-input>
+    </ion-item>
+    </ion-list>
+    <button ion-button color="dark" round clear>ATUALIZA</button>
+    </form>
+    
+    </ion-content>
